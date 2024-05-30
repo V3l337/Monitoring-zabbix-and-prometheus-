@@ -18,7 +18,7 @@ vim /etc/zabbix/zabbix_server.conf
 systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2 
 ```
-
+![alt text](https://github.com/V3l337/homework_netology/blob/main/hw-02/screen/Снимок%20экрана%202024-05-30%20162420.png)
 
 # Задание 2-3
 ### Установите Zabbix Agent на два хоста. 
@@ -37,5 +37,6 @@ systemctl enable zabbix-agent
 Скачал с оф.сайта .msi и установил (указал адрес сервера при установки)
 ```
 
+![alt text](https://github.com/V3l337/homework_netology/blob/main/hw-02/screen/Снимок%20экрана%202024-05-30%20173018.png)
 
-
+![alt text](https://github.com/V3l337/homework_netology/blob/main/hw-02/screen/Снимок%20экрана%202024-05-30%20173601.png)
