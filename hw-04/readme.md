@@ -53,5 +53,43 @@ sudo systemctl status prometheus.service
 
 
 # Задание 2
-##### Установка nodes
+##### Установка Node Exporter
+
+sudo wget https://github.com/prometheus/node_exporter/releases/download/v1.8.1/node_exporter-1.8.1.linux-amd64.tar.gz
+sudo tar xfvz node_exporter-1.8.1.linux-amd64.tar.gz
+
+sudo mkdir /etc/prometheus/node-exporter
+sudo cp node_exporter /etc/prometheus/node-exporter/
+sudo chown -R prometheus:prometheus /etc/prometheus/node-exporter
+
+Проверка 
+./node_exporter
+
+###### Создания сервиса для авто.работы
+
+sudo /etc/systemd/system/node_exporter.service
+
+[Unit] 
+Description=Node Exporter Lesson 9.4-MatveevVB
+After=network.target 
+[Service] 
+User=prometheus 
+Group=prometheus 
+Type=simple 
+ExecStart=/etc/prometheus/node-exporter/node_exporter 
+[Install] 
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+sudo systemctl start node_exporter.service
+sudo systemctl enable node_exporter.service
+sudo systemctl status node_exporter.service
+
+# Задание 3
+
+Добавил в prometheus.yml таргет localhost:9100
+sudo systemctl restart prometheus
+
+
+
 
