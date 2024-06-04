@@ -31,11 +31,14 @@ sudo systemctl start alertmanger.service
 sudo systemctl enable alertmanger.service
 sudo systemctl status alertmanger.service
 ```
+![alt text](https://github.com/V3l337/Monitoring-zabbix-and-prometheus-/blob/main/hw-05/screenshot/21.png)
+![alt text](https://github.com/V3l337/Monitoring-zabbix-and-prometheus-/blob/main/hw-05/screenshot/22.png)
+![alt text](https://github.com/V3l337/Monitoring-zabbix-and-prometheus-/blob/main/hw-05/screenshot/23.png)
 
 # Задание 3
-```
+
 sudo vim /etc/prometheus/prometheus.yml 
-```
+
 ```yaml
 # Alertmanager configuration
 alerting:
@@ -48,9 +51,9 @@ alerting:
 sudo systemctl restart prometheus
 sudo systemctl status prometheus
 ```
-```
+
 sudo vim /etc/prometheus/alertTEST.yml
-```
+
 ```yml
 groups: # Список групп
   - name: alertTEST # Имя группы
@@ -64,16 +67,16 @@ groups: # Список групп
         description: '{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 1 minute.' # Полное описание алерта
         summary: Instance {{ $labels.instance }} down # Краткое описание алерта
 ```
-```
+
 sudo vim /etc/prometheus/prometheus.yml 
-```
+
 ```yaml
 rule_files:
   - "alertTEST.yml"
 ```
-```
+
 sudo vim /etc/prometheus/alertmanager.yml
-```
+
 ```yaml
 global:
 route:
@@ -92,13 +95,16 @@ receivers: # Настройка способов оповещения
       auth_identity: 'user'
       auth_password: 'paS$w0rd'
 ```
+```
 sudo systemctl restart prometheus.service
 sudo systemctl status prometheus.service
+```
+![alt text](https://github.com/V3l337/Monitoring-zabbix-and-prometheus-/blob/main/hw-05/screenshot/3.png)
 
-# Задание 3
-```
+# Задание 4
+
 sudo vim /etc/docker/daemon.json
-```
+
 ```json
 {
 	"metrics-addr" : "0.0.0.0:9323",
@@ -112,6 +118,5 @@ sudo systemctl status  docker
 ```
 vim /etc/prometheus/prometheus.yml
 ```
-# Задание 4
 
-
+![alt text](https://github.com/V3l337/Monitoring-zabbix-and-prometheus-/blob/main/hw-05/screenshot/3.png)
